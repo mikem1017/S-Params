@@ -10,7 +10,7 @@ import matplotlib
 matplotlib.use('QtAgg')
 
 from plot_engine import PlotEngine
-from ui_components import PlotControlsWidget
+from plot_controls import PlotControlsWidget
 
 
 class PlotWindow(QMainWindow):
@@ -56,10 +56,8 @@ class PlotWindow(QMainWindow):
         self.plot_controls.plot_type_changed.connect(self.on_plot_type_changed)
         self.plot_controls.config_changed.connect(self.on_config_changed)
         
-        # Connect export buttons from plot controls
-        self.plot_controls.save_png_button.clicked.connect(self.export_png)
-        self.plot_controls.save_pdf_button.clicked.connect(self.export_pdf)
-        self.plot_controls.save_svg_button.clicked.connect(self.export_svg)
+        # NOTE: Export buttons removed from plot controls to prevent double save dialogs
+        # Use File menu for saving instead
         
         # Create menu bar
         self.create_menu_bar()
