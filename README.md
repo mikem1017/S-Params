@@ -34,25 +34,11 @@ A modern desktop application for visualizing S-parameter data from touchstone fi
 
 ### Running the Application
 
-**Option 1: Improved Workflow (Recommended)**
-```bash
-python main_improved.py
-```
-This opens a clean file manager with 4 file slots. Load files, choose S-parameters, then open the plot window.
-
-**Option 2: Separate Windows**
-```bash
-python main_separate.py
-```
-This opens two windows:
-- **File Manager**: Load and configure touchstone files
-- **Plot Window**: Display plots and controls
-
-**Option 3: Single Window**
 ```bash
 python main.py
 ```
-This opens a single window with all controls and the plot area.
+
+This opens a clean file manager with 4 file slots. Load files, choose S-parameters, then open the plot window.
 
 ### Loading Files
 
@@ -105,24 +91,17 @@ To create a standalone executable:
 
 2. Build the executable using the provided script:
    ```bash
-   # For the improved version (recommended)
-   python build_improved_exe.py
-   
-   # For the original version
-   python build_exe.py
+   python build_windows_exe.py
    ```
 
 3. The executable will be created in the `dist` folder:
-   - `S-Parameter-Plotter-Improved` (recommended)
-   - `S-Parameter-Plotter` (original)
+   - `S-Parameter-Plotter-Improved.exe` (Windows)
 
 ## Distribution
 
 The `dist` folder contains ready-to-distribute executables:
 
 - **Windows**: `S-Parameter-Plotter-Improved.exe` (double-click to run)
-- **macOS**: `S-Parameter-Plotter-Improved.app` (double-click to run)  
-- **Linux**: `S-Parameter-Plotter-Improved` (run from terminal)
 
 **No Python installation required** - everything is bundled into the executable!
 

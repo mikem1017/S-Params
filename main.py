@@ -1,18 +1,16 @@
 #!/usr/bin/env python3
 """
-S-Parameter Plotting Tool
-Main entry point for the application.
+S-Parameter Plotting Tool - Improved Workflow Version
+Main entry point with the improved file management workflow.
 """
 import sys
 import os
 from PyQt6.QtWidgets import QApplication
-from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QIcon
 
 # Add the current directory to Python path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from main_window import MainWindow
+from file_manager_window import FileManagerWindow
 
 
 def main():
@@ -23,11 +21,8 @@ def main():
     app.setApplicationVersion("1.0")
     app.setOrganizationName("RF Visualization")
     
-    # Enable high DPI scaling (PyQt6 handles this automatically)
-    # Note: AA_EnableHighDpiScaling is deprecated in PyQt6
-    
     # Create and show main window
-    window = MainWindow()
+    window = FileManagerWindow()
     window.show()
     
     # Start event loop

@@ -31,7 +31,7 @@ def build_windows_executable():
         "--collect-data", "matplotlib",  # Include matplotlib data files
         "--collect-data", "skrf",        # Include scikit-rf data files
         "--icon", "icon.ico",            # Windows icon (if available)
-        "main_improved.py"               # Use the improved main file
+        "main.py"                        # Main application file
     ]
     
     try:
