@@ -56,8 +56,10 @@ class PlotWindow(QMainWindow):
         self.plot_controls.plot_type_changed.connect(self.on_plot_type_changed)
         self.plot_controls.config_changed.connect(self.on_config_changed)
         
-        # NOTE: Export buttons removed from plot controls to prevent double save dialogs
-        # Use File menu for saving instead
+        # Connect export buttons from plot controls
+        self.plot_controls.save_png_button.clicked.connect(self.export_png)
+        self.plot_controls.save_pdf_button.clicked.connect(self.export_pdf)
+        self.plot_controls.save_svg_button.clicked.connect(self.export_svg)
         
         # Create menu bar
         self.create_menu_bar()
@@ -135,8 +137,14 @@ class PlotWindow(QMainWindow):
                 self.plot_engine.save_plot(filepath, dpi=300)
                 self.status_bar.showMessage(f"Plot saved as PNG: {os.path.basename(filepath)}")
                 QMessageBox.information(self, "Success", f"Plot saved successfully as:\n{filepath}")
+                # Keep focus on plot window
+                self.activateWindow()
+                self.raise_()
             except Exception as e:
                 QMessageBox.critical(self, "Error", f"Failed to save plot:\n{str(e)}")
+                # Keep focus on plot window even after error
+                self.activateWindow()
+                self.raise_()
     
     def export_pdf(self):
         """Export plot as PDF."""
@@ -148,8 +156,14 @@ class PlotWindow(QMainWindow):
                 self.plot_engine.save_plot(filepath, dpi=300)
                 self.status_bar.showMessage(f"Plot saved as PDF: {os.path.basename(filepath)}")
                 QMessageBox.information(self, "Success", f"Plot saved successfully as:\n{filepath}")
+                # Keep focus on plot window
+                self.activateWindow()
+                self.raise_()
             except Exception as e:
                 QMessageBox.critical(self, "Error", f"Failed to save plot:\n{str(e)}")
+                # Keep focus on plot window even after error
+                self.activateWindow()
+                self.raise_()
     
     def export_svg(self):
         """Export plot as SVG."""
@@ -161,8 +175,14 @@ class PlotWindow(QMainWindow):
                 self.plot_engine.save_plot(filepath, dpi=300)
                 self.status_bar.showMessage(f"Plot saved as SVG: {os.path.basename(filepath)}")
                 QMessageBox.information(self, "Success", f"Plot saved successfully as:\n{filepath}")
+                # Keep focus on plot window
+                self.activateWindow()
+                self.raise_()
             except Exception as e:
                 QMessageBox.critical(self, "Error", f"Failed to save plot:\n{str(e)}")
+                # Keep focus on plot window even after error
+                self.activateWindow()
+                self.raise_()
     
     def show_about(self):
         """Show about dialog."""

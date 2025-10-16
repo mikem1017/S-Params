@@ -138,14 +138,21 @@ class PlotControlsWidget(QWidget):
         limits_group.setLayout(limits_layout)
         layout.addWidget(limits_group)
         
-        # Export buttons (NO save functionality - just for display)
+        # Export buttons
         export_group = QGroupBox("Export")
         export_layout = QVBoxLayout()
         
-        export_info = QLabel("Use File menu to save plots")
-        export_info.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        export_info.setStyleSheet("color: gray; font-style: italic;")
-        export_layout.addWidget(export_info)
+        self.save_png_button = QPushButton("Save as PNG")
+        self.save_png_button.setMinimumWidth(140)
+        export_layout.addWidget(self.save_png_button)
+        
+        self.save_pdf_button = QPushButton("Save as PDF")
+        self.save_pdf_button.setMinimumWidth(140)
+        export_layout.addWidget(self.save_pdf_button)
+        
+        self.save_svg_button = QPushButton("Save as SVG")
+        self.save_svg_button.setMinimumWidth(140)
+        export_layout.addWidget(self.save_svg_button)
         
         export_group.setLayout(export_layout)
         layout.addWidget(export_group)
